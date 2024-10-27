@@ -17,5 +17,12 @@ const ListItemSchema = new mongoose_1.default.Schema({
         type: Boolean,
         default: false,
     },
+    listId: {
+        type: mongoose_1.default.Schema.Types.ObjectId,
+        ref: "UserList",
+        required: true,
+    },
+}, {
+    timestamps: true,
 });
 exports.default = mongoose_1.default.model("ListItem", ListItemSchema);

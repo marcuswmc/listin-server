@@ -6,6 +6,7 @@ export interface IListItem extends mongoose.Document {
   isChecked: boolean;
   createdAt?: Date;
   updatedAt?: Date;
+  listId: mongoose.Schema.Types.ObjectId;
 }
 
 const ListItemSchema = new mongoose.Schema(
@@ -21,6 +22,11 @@ const ListItemSchema = new mongoose.Schema(
     isChecked: {
       type: Boolean,
       default: false,
+    },
+    listId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "UserList",
+      required: true,
     },
   },
   {
