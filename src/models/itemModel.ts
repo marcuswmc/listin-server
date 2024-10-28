@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface IListItem extends mongoose.Document {
+export interface IItem extends mongoose.Document {
   title: string;
   quantity: number;
   isChecked: boolean;
@@ -9,7 +9,7 @@ export interface IListItem extends mongoose.Document {
   listId: mongoose.Schema.Types.ObjectId;
 }
 
-const ListItemSchema = new mongoose.Schema(
+const ItemSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -25,7 +25,7 @@ const ListItemSchema = new mongoose.Schema(
     },
     listId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "UserList",
+      ref: "List",
       required: true,
     },
   },
@@ -34,4 +34,4 @@ const ListItemSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model<IListItem>("ListItem", ListItemSchema);
+export default mongoose.model<IItem>("ListItem", ItemSchema);

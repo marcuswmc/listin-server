@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 
-import listRoutes from "./routes/lists";
-import itemRoutes from "./routes/items";
+import listRouter from "./routes/listRouter";
+import itemRouter from "./routes/itemRouter";
 
 dotenv.config();
 
@@ -19,8 +19,8 @@ app.use(
 );
 app.use(express.json());
 
-app.use("/api", listRoutes);
-app.use("/api", itemRoutes);
+app.use("/api", listRouter);
+app.use("/api", itemRouter);
 
 // Conectar ao MongoDB
 const startApp = async () => {
